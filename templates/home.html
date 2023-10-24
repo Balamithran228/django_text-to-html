@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Text to html editor</title>
+
+</head>
+<style>
+
+    .htmleditor{
+         float:right;
+        width: 44%;
+    }
+    .htmleditor p {
+        font-weight: 900;
+        font-size: 21px;
+        /* margin-left: 45px;
+        margin-right: 0px;*/
+        margin-bottom: 9px;
+    }
+
+    .texteditor p label {
+        font-weight: 800;
+        font-size: 18px;
+    }
+    #htmldata {
+        font-weight: 600;
+        width: 100px;
+    }
+    .row{
+        display: inline-block;
+        width: 48.5%;
+    }
+</style>
+<body>
+        <h1 style="text-align: center; color: darkslateblue">Text to Html Convertor</h1>
+
+        <div class="row">
+
+                <div class="texteditor">
+                    {{form.media}}
+                    {{form.as_p}}
+                </div>
+                <input type="submit"  onclick="TextConvert()">
+
+            </div>
+         <div class="htmleditor ">
+                    <p>HTML Editor</p>
+                    <div class="form-group">
+                        <textarea  rows="16" id='htmldata' style=" width: 661px; height: 354px; ">
+                    </textarea>
+                    </div>
+                </div>
+
+
+
+</body>
+</html>
+<script>
+    function TextConvert() {
+        var x = CKEDITOR.instances['id_body'].getData();
+        var y = document.getElementById('htmldata');
+        y.innerHTML = x;
+    }
+</script>
